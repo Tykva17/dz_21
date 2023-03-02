@@ -18,13 +18,17 @@ console.log('N1 --> ' , arr1);
 //N2
 
 const array1 = [1, 2, 3, 4];
-
+let initialValue = 1;
 // 0 + 1 + 2 + 3 + 4
 const sumWithInitial = array1.reduce(
-  (accumulator, currentValue) => accumulator + currentValue
+    (accumulator, currentValue) => accumulator + currentValue,
+    initialValue
 );
 
-function myReducer(arrP, callback){
+function myReducer(arrP, callback, initialValue){
+    if(typeof initialValue === 'number'){
+        arrP.unshift(initialValue);
+    }
     let result = arrP[0];
         for(let i = 1; i < arrP.length; i++){
             result = callback(result,arrP[i])
@@ -33,7 +37,7 @@ function myReducer(arrP, callback){
     return result
 }
 
-let sumOfElem = myReducer(array1, (a,b) => a + b)
+let sumOfElem = myReducer(array1, (a,b) => a + b,initialValue)
 
 
 console.log('reduce', sumWithInitial);
