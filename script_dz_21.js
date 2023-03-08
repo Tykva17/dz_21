@@ -4,9 +4,9 @@ let arr = [1,'2',3,4,5,65,8,7,'name'];
 function mapping(arrParam, callback){
     let arrNew = [];
         for (let x of arrParam) {
-//             if (callback(x)) {
-              arrNew.push(callback(x));
-//             }
+            if (callback(x)) {
+              arrNew.push(x);
+            }
           }
     return  arrNew;
 }
