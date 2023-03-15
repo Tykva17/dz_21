@@ -4,16 +4,23 @@ let arr = [1,'2',3,4,5,65,8,7,'name'];
 function mapping(arrParam, callback){
     let arrNew = [];
         for (let x of arrParam) {
-            if (callback(x)) {
-              arrNew.push(x);
-            }
+                arrNew.push(callback(x));
           }
     return  arrNew;
 }
 
-let arr1 = mapping(arr, x => x % 2 === 0)
 
-console.log('N1 --> ' , arr1);
+let arr2 = [{test: 1}, {test: 2}]
+
+let arr3 = arr2.map( _ => _.test )
+let arr5 = mapping(arr2, _ => _.test)
+
+let arr4 = arr.map( x => x % 2 === 0 )
+let arr6 = mapping(arr, x => x % 2 === 0)
+console.log('arr3' , arr3);
+console.log('arr5' , arr5);
+console.log('arr4' , arr4);
+console.log('arr6' , arr6);
 
 //N2
 
